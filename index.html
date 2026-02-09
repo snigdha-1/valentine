@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Valentine</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(#e8677f, #ff8fab);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding-top: 40px;
+}
+
+/* PHOTO */
+.photo {
+    width: 85%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 25px;
+    margin-top: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* TEXT */
+h1 {
+    margin-top: 25px;
+    font-size: 28px;
+}
+
+/* BUTTONS */
+.buttons {
+    margin-top: 30px;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+#yes {
+    background: white;
+    color: #ff4d6d;
+}
+
+#no {
+    background: #c9184a;
+    color: white;
+    position: absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <video class="photo" autoplay loop muted playsinline>
+        <source src="videos/love.mp4" type="video/mp4">
+    </video>
+
+
+    <h1>ABHI!!!  Will you be my Valentine? ❤️</h1>
+
+    <div class="buttons">
+        <button id="yes" onclick="nextPage()">Yes 💖</button>
+        <button id="no" onmouseover="moveNo()">No 🙈</button>
+    </div>
+
+</div>
+
+<script>
+/* PHOTO SLIDESHOW */
+let photos = ["images/1.jpg", "images/2.jpg", "images/3.jpg"];
+let i = 0;
+
+setInterval(() => {
+    i = (i + 1) % photos.length;
+    document.getElementById("slide").src = photos[i];
+}, 2000);
+
+/* RUNAWAY NO BUTTON */
+function moveNo() {
+    let x = Math.random() * 250;
+    let y = Math.random() * 400;
+    document.getElementById("no").style.left = x + "px";
+    document.getElementById("no").style.top = y + "px";
+}
+
+/* NEXT PAGE */
+function nextPage() {
+    window.location.href = "page2.html";
+}
+</script>
+
+</body>
+</html>
